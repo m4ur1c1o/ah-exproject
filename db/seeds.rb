@@ -5,11 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-User.create(firstname: 'nacho', lastname: 'perez', gender: 'masculino', email: 'nacho@codea.mx', password: '123456', age: 25)
+user = User.create(firstname: 'nacho', lastname: 'perez', gender: 'masculino', email: 'nacho@codea.mx', password: '123456', age: 25)
 
-u = User.first
+medical_history = MedicalHistory.create()
 
-u.medical_history = MedicalHistory.create()
+user.medical_history = MedicalHistory.create()
 
 MedicalHistory.first.studies << Study.create
 
