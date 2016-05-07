@@ -6,4 +6,4 @@
 /log/*
 !/log/.keep
 /tmp
-*.lock
+Gemfile.lock
