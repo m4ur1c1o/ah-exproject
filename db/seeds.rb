@@ -26,7 +26,8 @@ Symptom.create(name: "Dolor articular")
 Symptom.create(name: "Fatiga")
 Symptom.create(name: "Piel Seca")
 
-User.create(firstname: "mau", lastname:"g", gender: "M", email: "mau@mail.com", password: "123456789", age: 28)
+user = User.create(firstname: "mau", lastname:"g", gender: "M", email: "mau@mail.com", password: "123456789", age: 28)
+user.medical_history = MedicalHistory.create()
 
 
 Study.first.hormone_levels << HormoneLevel.create(level:5, min: 2, max:10)

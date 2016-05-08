@@ -4,6 +4,7 @@ class UsersController < ApplicationController
 		@user = User.new(user_params)
 		if @user.save
 			flash[:info] = 'Usuario creado exitosamente.'
+			@user.medical_history << MedicalHistory.create
 			log_in(@user)
 			redirect_to @user
 		else
@@ -22,8 +23,6 @@ class UsersController < ApplicationController
 	def show
 		@user = User.find(params[:id])
 		@studies=@user.medical_history.studies
-		puts "*************************************************"
-		p @studies
 	end
 
 	def update
