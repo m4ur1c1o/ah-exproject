@@ -4,4 +4,7 @@ class StaticPagesController < ApplicationController
 		p current_user
 	end
 
+	def faq
+	end
+
 end
