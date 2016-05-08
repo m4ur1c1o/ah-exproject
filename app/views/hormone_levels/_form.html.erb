@@ -1,0 +1,44 @@
+<%= form_for(@hormone_level) do |f| %>
+  <% if @hormone_level.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@hormone_level.errors.count, "error") %> prohibited this hormone_level from being saved:</h2>
+
+      <ul>
+      <% @hormone_level.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :level %><br>
+    <%= f.number_field :level %>
+  </div>
+  <div class="field">
+    <%= f.label :min %><br>
+    <%= f.number_field :min %>
+  </div>
+  <div class="field">
+    <%= f.label :max %><br>
+    <%= f.number_field :max %>
+  </div>
+  <div class="field">
+    <%= f.label "Nombre de la Hormona" %><br>
+    <%= text_field_tag('hormone_name') %>
+  </div>
+
+  <div class="field">
+    <%= f.label "Abreviación" %><br>
+    <%= text_field_tag('hormone_abbreviation') %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label "Unidad" %><br>
+    <%= text_field_tag('hormone_unit') %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
