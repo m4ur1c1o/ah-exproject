@@ -16,3 +16,9 @@ MedicalHistory.first.studies << Study.create
 Study.first.hormone_levels << HormoneLevel.create(level:8, min: 2, max:30)
 
 HormoneLevel.first.hormones << Hormone.create
+
+Symptom.create(name: "Estreñimiento")
+Symptom.create(name: "Caida de cabello")
+Symptom.create(name: "Dolor articular")
+Symptom.create(name: "Fatiga")
+Symptom.create(name: "Piel Seca")
