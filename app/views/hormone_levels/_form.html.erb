@@ -1,0 +1,43 @@
+<%= form_for(@hormone_level) do |f| %>
+  <% if @hormone_level.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@hormone_level.errors.count, "error") %> prohibited this hormone_level from being saved:</h2>
+
+      <ul>
+      <% @hormone_level.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :level %><br>
+    <%= f.number_field :level, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :min %><br>
+    <%= f.number_field :min, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :max %><br>
+    <%= f.number_field :max, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label "Nombre de la Hormona" %><br>
+    <%= text_field_tag('hormone_name', "", class: 'form-control') %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "Abreviación" %><br>
+    <%= text_field_tag('hormone_abbreviation', "", class: 'form-control') %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "Unidad" %><br>
+    <%= text_field_tag('hormone_unit', "", class: 'form-control') %>
+  </div>
+  <div class="actions form-group">
+    <%= f.submit "Crear", class: 'btn btn-success' %>
+  </div>
+<% end %>

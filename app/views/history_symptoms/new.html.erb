@@ -1,7 +1,7 @@
 <h1>History Symptoms</h1>
 
 <%= form_for @history_symptoms do |f| %>
-  <%= f.text_field :date, placeholder: "Fecha" %><br>
+  <%= f.date_field :date, placeholder: "Fecha", :value => Time.now.strftime('%Y-%m-%d') %><br>
   <% @symptoms.each do |symptom| %>
     <%= check_box_tag 'symptoms[]', symptom.name, false, options: { id: symptom.name } %><%= symptom.name %><br>
   <% end  %>

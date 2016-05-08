@@ -5,23 +5,16 @@ class HistorySymptomsController < ApplicationController
   end
 
   def create
-    @history_symptoms = HistorySymptom.new(history_symptoms_params)
-    puts "*" * 50
-    p params
-    puts "*" * 50
-    p symptoms = params[:symptoms]
-    puts "*" * 50
     params[:symptoms].each do |symptom|
-      Symptom.new(symptom)
+      h = HistorySymptom.new(history_symptoms_params)
+      p "*" * 50
+      p h
+      p "*" * 50
+      h.medical_history_id = current_user.medical_history.id
+      h.save
     end
-
-    if @history_symptoms.save
-      log_in @history_symptoms
-      flash[:success] = "Bienvenido a la App"
-      redirect_to root_path
-    else
-      render 'new'
-    end
+    flash[:success] = "Guardado correctamente"
+    redirect_to current_user
   end
 
   private
