@@ -6,5 +6,8 @@ Rails.application.routes.draw do
   resources :users, except: :index
   resources :history_symptoms, except: :index
 
-  get '/faq', to: 'static_pages#faq'
+  get '/faq', to: 'static_pages#faq'  
+  get    'login'   => 'sessions#new'
+  	post   'login'   => 'sessions#create'
+  	get 'logout'  => 'sessions#destroy'
 end
