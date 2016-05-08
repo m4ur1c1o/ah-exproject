@@ -1,50 +1,64 @@
-<h2>Nombre:<%= @user.firstname %></h1>
+<div class="row">
+  <div class="col-md-7 col-md-offset-2">
+    <div class="panel panel-default">
+      <div class="panel-heading"></div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-3 col-md-offset-1 text-center">
+            <%= image_tag("default.jpg", class: "img-profile img-circle img-center", width: "200px")  %>
+          </div>
+          <div class="col-md-6 col-md-offset-2">
+            <h3>Nombre: <%= @user.firstname %></h3>
+            <h3>Apellido: <%= @user.lastname %></h3>
+            <h3>Genero: <%= @user.gender %></h3>
+            <h3>Email: <%= @user.email %></h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<h2>Apellido:<%= @user.lastname %></h2>
-<h2>Genero:<%= @user.gender %></h2>
-<h2>Email:<%= @user.email %></h2>
 
 <br>
 
-<div class="container">
-  <h2>Historial</h2>
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Fecha del Estudio</th>
-        <th>Limites</th>
-        <th>Nivel</th>
-        <th>Hormona</th>
-      </tr>
-    </thead>
-    <tbody>
-    	<% @studies.each do |x| %>
-    		<% p x%>
-	        <td><%= x.created_at %></td>
-			<td>
-				<ul>
-					<% x.hormone_levels.each do |l|%>
-		        		<li><%= "#{l.min} - #{l.max}" %></li>
-					<% end %>
-				</ul>
-			</td>
-			<td>
-				<ul>
-					<% x.hormone_levels.each do |l|%>
-		        		<li><%= l.level %></li>
-					<% end %>
-				</ul>
-			</td>
-			<td>
-				<ul>
-					<% x.hormone_levels.each do |l|%>
-		        		<li><%= l.hormone.name %></li>
-					<% end %>
-				</ul>
-			</td>	        
-    	<% end %>
-      <tr>
-      </tr>
-    </tbody>
-  </table>
-</div>
+<h2>Historial</h2>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Fecha del Estudio</th>
+      <th>Limites</th>
+      <th>Nivel</th>
+      <th>Hormona</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @studies.each do |x| %>
+      <% p x%>
+        <td><%= x.created_at %></td>
+    <td>
+      <ul>
+        <% x.hormone_levels.each do |l|%>
+              <li><%= "#{l.min} - #{l.max}" %></li>
+        <% end %>
+      </ul>
+    </td>
+    <td>
+      <ul>
+        <% x.hormone_levels.each do |l|%>
+              <li><%= l.level %></li>
+        <% end %>
+      </ul>
+    </td>
+    <td>
+      <ul>
+        <% x.hormone_levels.each do |l|%>
+              <li><%= l.hormone.name %></li>
+        <% end %>
+      </ul>
+    </td>
+    <% end %>
+    <tr>
+    </tr>
+  </tbody>
+</table>
