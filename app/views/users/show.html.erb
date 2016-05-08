@@ -68,3 +68,36 @@
     </tbody>
   </table>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="row">
+  <h2>Sintomas</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Fecha</th>
+        <% Symptom.all.each do |s|%>
+          <th><%= s.name %></th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <% current_user.medical_history.history_symptoms.uniq.each do |x| %>
+        <tr>
+          <td><%= x.date %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
