@@ -7,4 +7,9 @@ Rails.application.routes.draw do
   resources :history_symptoms, except: :index
 
   get '/faq', to: 'static_pages#faq'
+
+  get    'login'   => 'sessions#new'
+  post   'login'   => 'sessions#create'
+  delete 'logout'  => 'sessions#destroy'
+
 end
