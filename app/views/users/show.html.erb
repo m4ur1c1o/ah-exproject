@@ -22,43 +22,49 @@
 
 <br>
 
-<h2>Historial</h2>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Fecha del Estudio</th>
-      <th>Limites</th>
-      <th>Nivel</th>
-      <th>Hormona</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @studies.each do |x| %>
-      <% p x%>
+<div class="row">
+  <%= link_to 'Registrar Estudio', new_hormone_level_path, class: 'btn btn-success', id: 'boton' %>
+  <%= link_to 'Sintomas', "", class: 'btn btn-success', id: 'boton' %>
+  <h2>Historial</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Fecha del Estudio</th>
+        <th>Limites</th>
+        <th>Nivel</th>
+        <th>Hormona</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @studies.each do |x| %>
+      <tr>
         <td><%= x.created_at %></td>
-    <td>
-      <ul>
-        <% x.hormone_levels.each do |l|%>
-              <li><%= "#{l.min} - #{l.max}" %></li>
-        <% end %>
-      </ul>
-    </td>
-    <td>
-      <ul>
-        <% x.hormone_levels.each do |l|%>
-              <li><%= l.level %></li>
-        <% end %>
-      </ul>
-    </td>
-    <td>
-      <ul>
-        <% x.hormone_levels.each do |l|%>
-              <li><%= l.hormone.name %></li>
-        <% end %>
-      </ul>
-    </td>
-    <% end %>
-    <tr>
-    </tr>
-  </tbody>
-</table>
+        <td>
+          <ul>
+            <% x.hormone_levels.each do |y| %>
+              <li><%= "#{y.min} - #{y.max}" %></li>
+            <% end %>
+          </ul>
+        </td>
+
+        <td>
+          <ul>
+            <% x.hormone_levels.each do |y| %>
+              <li><%= y.level %></li>
+            <% end %>
+          </ul>
+        </td>
+
+        <td>
+          <ul>
+            <% x.hormone_levels.each do |y| %>
+              <li><%= y.hormone.name %></li>
+            <% end %>
+          </ul>
+        </td>
+
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
