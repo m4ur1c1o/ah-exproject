@@ -22,3 +22,6 @@ Symptom.create(name: "Caida de cabello")
 Symptom.create(name: "Dolor articular")
 Symptom.create(name: "Fatiga")
 Symptom.create(name: "Piel Seca")
+
+
+User.create(firstname: "mau", lastname:"g", gender: "M", email: "mau@mail.com", password: "123456789", age: 28)
