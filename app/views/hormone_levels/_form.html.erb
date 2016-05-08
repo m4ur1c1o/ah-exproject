@@ -11,34 +11,33 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :level %><br>
-    <%= f.number_field :level %>
+    <%= f.number_field :level, class: 'form-control' %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :min %><br>
-    <%= f.number_field :min %>
+    <%= f.number_field :min, class: 'form-control' %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :max %><br>
-    <%= f.number_field :max %>
+    <%= f.number_field :max, class: 'form-control' %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label "Nombre de la Hormona" %><br>
-    <%= text_field_tag('hormone_name') %>
+    <%= text_field_tag('hormone_name', "", class: 'form-control') %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label "Abreviación" %><br>
-    <%= text_field_tag('hormone_abbreviation') %>
+    <%= text_field_tag('hormone_abbreviation', "", class: 'form-control') %>
   </div>
 
-
-  <div class="field">
+  <div class="form-group">
     <%= f.label "Unidad" %><br>
-    <%= text_field_tag('hormone_unit') %>
+    <%= text_field_tag('hormone_unit', "", class: 'form-control') %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="actions form-group">
+    <%= f.submit "Crear", class: 'btn btn-success' %>
   </div>
 <% end %>
