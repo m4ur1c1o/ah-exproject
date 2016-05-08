@@ -1,5 +1,5 @@
 class HormoneLevel < ActiveRecord::Base
 
-	has_many :hormones
+	has_one :hormone
 
 end
