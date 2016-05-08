@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 	def create
 		@user = User.new(user_params)
 		if @user.save
-			flash[:info] = 'Usuario creado exitosamente'
+			flash[:info] = 'Usuario creado exitosamente.'
 			log_in(@user)
 			redirect_to @user
 		else
