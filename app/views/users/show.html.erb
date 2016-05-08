@@ -3,3 +3,48 @@
 <h2>Apellido:<%= @user.lastname %></h2>
 <h2>Genero:<%= @user.gender %></h2>
 <h2>Email:<%= @user.email %></h2>
+
+<br>
+
+<div class="container">
+  <h2>Historial</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Fecha del Estudio</th>
+        <th>Limites</th>
+        <th>Nivel</th>
+        <th>Hormona</th>
+      </tr>
+    </thead>
+    <tbody>
+    	<% @studies.each do |x| %>
+    		<% p x%>
+	        <td><%= x.created_at %></td>
+			<td>
+				<ul>
+					<% x.hormone_levels.each do |l|%>
+		        		<li><%= "#{l.min} - #{l.max}" %></li>
+					<% end %>
+				</ul>
+			</td>
+			<td>
+				<ul>
+					<% x.hormone_levels.each do |l|%>
+		        		<li><%= l.level %></li>
+					<% end %>
+				</ul>
+			</td>
+			<td>
+				<ul>
+					<% x.hormone_levels.each do |l|%>
+		        		<li><%= l.hormone.name %></li>
+					<% end %>
+				</ul>
+			</td>	        
+    	<% end %>
+      <tr>
+      </tr>
+    </tbody>
+  </table>
+</div>
