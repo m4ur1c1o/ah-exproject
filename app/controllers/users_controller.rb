@@ -1,49 +1,49 @@
 class UsersController < ApplicationController
 
-	def create
-		@user = User.new(user_params)
-		if @user.save
-			flash[:info] = 'Usuario creado exitosamente.'
-			@user.medical_history = MedicalHistory.create
-			log_in(@user)
-			redirect_to @user
-		else
-			render 'new'
-		end			
-	end
+  def create
+    @user = User.new(user_params)
+    if @user.save
+      flash[:info] = 'Usuario creado exitosamente.'
+      @user.medical_history = MedicalHistory.create
+      log_in(@user)
+      redirect_to @user
+    else
+      render 'new'
+    end
+  end
 
-	def new
-		@user = User.new
-	end
+  def new
+    @user = User.new
+  end
 
-	def edit
-		@user = User.find(params[:id])
-	end
+  def edit
+    @user = User.find(params[:id])
+  end
 
-	def show
-		@user = User.find(params[:id])
-		@studies=@user.medical_history.studies
-	end
+  def show
+    @user = User.find(params[:id])
+    @studies=@user.medical_history.studies
+  end
 
-	def update
-		@user = User.find(params[:id])
-		if @user.update_attributes(user_params)
-			flash[:success] = 'Perfil actualizados exitosamente'
-			redirect_to current_user
-		else
-			render 'edit'
-		end
-	end
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      flash[:success] = 'Perfil actualizados exitosamente'
+      redirect_to current_user
+    else
+      render 'edit'
+    end
+  end
 
-	def destroy
-		@user = User.find(params[:id])
-		@user.destroy
-	end
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+  end
 
-	private
+  private
 
-	def user_params
-		params.require(:user).permit(:firstname, :lastname, :age, :gender, :email, :password)
-	end
+    def user_params
+      params.require(:user).permit(:firstname, :lastname, :age, :gender, :email, :password)
+    end
 
 end
