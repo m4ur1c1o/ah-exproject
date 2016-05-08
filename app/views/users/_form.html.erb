@@ -1,19 +1,25 @@
 <%= form_for(@user) do |f| %>
- <%= render 'shared/error_messages', object: f.object %>
+ <%#= render 'shared/error_messages', object: f.object %>
 
- <%= f.label :name %>
- <%= f.text_field :name, class: 'form-control' %>
 
- <%= f.label :email %>
+ <%= f.label :firstname, 'Nombre:' %>
+ <%= f.text_field :firstname, class: 'form-control' %> 
+
+ <%= f.label :lastname, 'Apellidos:' %>
+ <%= f.text_field :lastname, class: 'form-control' %>
+
+ <%= f.label :age, 'Edad:' %>
+ <%= f.text_field :age, class: 'form-control' %>
+
+ <%= f.label :gender, 'Genero:' %>
+ <%= f.select(:gender,['Masculino', 'Femenino'], class: 'form-control') %>
+
+ <%= f.label :email, 'Email:' %>
  <%= f.email_field :email, class: 'form-control' %>
 
- <%= f.label :password %>
+ <%= f.label :password, 'Contraseña:' %>
  <%= f.password_field :password, class: 'form-control' %>
 
- <%= f.label :password_confirmation %>
- <%= f.password_field :password_confirmation, class: 'form-control' %>
-
- <%= f.submit 'Guardar', class: "btn btn-primary" %>
+ <%= f.submit yield(:button_text), class: "btn btn-primary" %>
 <% end %>
 
-<div></div>
