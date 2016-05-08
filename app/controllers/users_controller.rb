@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 		@user = User.new(user_params)
 		if @user.save
 			flash[:info] = 'Usuario creado exitosamente.'
-			@user.medical_history << MedicalHistory.create
+			@user.medical_history = MedicalHistory.create
 			log_in(@user)
 			redirect_to @user
 		else
