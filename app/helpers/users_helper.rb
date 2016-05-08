@@ -5,6 +5,15 @@ module UsersHelper
 		session[:user_id] = user.id
 	end
 
+	def current_user
+		puts "*" * 50
+		puts "What the fuck current user in application"
+		puts "*" * 50
+		if (session[:user_id])
+			@current_user ||= User.find(session[:user_id])
+		end
+	end
+
 	# Returns the current logged-in user (if any).
 
 	def current_user?(user)
